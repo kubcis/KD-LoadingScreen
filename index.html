@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KD Loading Screen</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+        
+    <div class="bg" id="bgA"></div>
+    <div class="bg" id="bgB"></div>
+
+    <div class="loading">
+
+        <div class="logoBox">
+            <img src="assets/server.png">
+        </div>
+
+        <header class="menu">
+            <nav class="buttons">
+                <div class="nav-slider"></div>
+                <button class="home active-text" onclick="openTab(event, 'home-tab')">HOME</button>
+                <button class="news" onclick="openTab(event, 'news-tab')">NEWS</button>
+                <button class="team" onclick="openTab(event, 'team-tab')">TEAM</button>
+                <button class="tab-links" onclick="openTab(event, 'about-tab')">ABOUT</button>
+            </nav>
+        </header>
+
+        <div id="main-window" class="player-window">
+            
+            <div id="player-core" class="player-content">
+                <div class="track-info">
+                    <div class="track-logo" id="song-logo">
+                        <img src="assets/song-logo-template.png" alt="Song Logo">
+                    </div>
+                    <div class="track-text">
+                        <div class="track-title" id="song-title">Song</div>
+                        <div class="track-artist" id="song-artist">Artist</div>
+                    </div>
+                </div>
+
+                <div class="player-controls">
+                    <div class="control-buttons">
+                        <button class="player-btn" id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
+                        <button class="player-btn play-btn" id="play-btn"><i class="fa-solid fa-play"></i></button>
+                        <button class="player-btn" id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+                    </div>
+                    <div class="progress-container">
+                        <span class="time" id="current-time">0:00</span>
+                        <div class="progress-bar">
+                            <div class="progress" id="progress-line"></div>
+                        </div>
+                        <span class="time" id="total-time">3:45</span>
+                    </div>
+                </div>
+
+                <div class="volume-controls">
+                    <span class="volume-icon"><i class="fa-solid fa-volume-high"></i></span>
+                    <input id="vol" type="range" min="0" max="100" value="50" class="volume-slider">
+                    <span id="volume-text">100%</span>
+                </div>
+            </div>
+
+            <div id="text-core" class="tabs-wrapper hidden-content">
+                
+                <div id="news-tab" class="tab-pane hidden">
+                    <div class="tab-header">
+                        <h2>News & Updates</h2>
+                        <p>Follow the latest events and updates from our community in real-time.</p>
+                    </div>
+        
+                    <div class="news-container" id="discord-news">
+                        <p style="color: rgba(255,255,255,0.3);">Loading latest news...</p>
+                    </div>
+                </div>
+
+                <div id="team-tab" class="tab-pane hidden">
+                    <div class="tab-header">
+                        <h2>ADMIN TEAM</h2>
+                        <p>Management and administration of our server.</p>
+                    </div>
+                    
+                    <div class="team-grid" id="dynamic-team">
+                        <p style="color: rgba(255,255,255,0.3);">Loading team members...</p>
+                    </div>
+                </div>
+
+                <div id="about-tab" class="tab-pane hidden">
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+
+<div id="custom-cursor" class="arrow"></div>
+</body>
+<audio id="music" autoplay loop preload="auto">
+    <source src="assets/music.mp3" type="audio/mp3">
+</audio>
+<script src="script.js"></script>
+</html>
